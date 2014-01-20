@@ -43,8 +43,7 @@ whimp.task('some-task', {
 whimp.task('test-task', {
   depends: [ 'depends1', 'depends2' ],
   run: function testTask(params, deferred) {
-    whimp.run('some-task')
-      .done(deferred.resolve, deferred.resolve);
+    return whimp.run('some-task');
   }
 });
 
