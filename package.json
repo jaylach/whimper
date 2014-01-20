@@ -1,0 +1,30 @@
+{
+  "name": "whimper",
+  "version": "0.0.1",
+  "description": "Yet another JavaScript task runner.",
+  "main": "index.js",
+  "dependencies": {
+    "q": "~1.0.0",
+    "optimist": "~0.6.0",
+    "lodash": "~2.4.1",
+    "moment": "~2.5.0",
+    "cli-color": "~0.2.3"
+  },
+  "devDependencies": {
+    "mocha": "~1.17.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "keywords": [
+    "task",
+    "build",
+    "system",
+    "unit",
+    "tool"
+  ],
+  "author": "Jason LaChapelle <toys@codegrit.com>",
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}
