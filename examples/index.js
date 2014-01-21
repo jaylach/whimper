@@ -10,15 +10,28 @@ whimp.task('depends1', {
 });
 
 whimp.task('depends2', {
-  depends: [ 'depends3' ],
+  concurrent: true,
+  depends: [ 'depends3', 'depends4' ],
   run: function depends2(params, deferred) {
     deferred.resolve();
   }
 });
 
 whimp.task('depends3', {
+  concurrent: true,
   run: function depends3(params, deferred) {
-    deferred.resolve();
+    setTimeout(function() {
+      deferred.resolve();
+    }, 1000);
+  }
+});
+
+whimp.task('depends4', {
+  concurrent: true,
+  run: function depends4(params, deferred) {
+    setTimeout(function() {
+      deferred.resolve();
+    }, 1500);
   }
 });
 
@@ -33,7 +46,6 @@ whimp.task('some-depends', {
 whimp.task('some-task', {
   depends: [ 'some-depends' ],
   run: function someTask(params, deferred) {
-    logger.log('In some-task');
     setTimeout(function() {
       deferred.resolve();
     }, 1500);
@@ -46,5 +58,6 @@ whimp.task('test-task', {
     return whimp.run('some-task');
   }
 });
+
 
 whimp.run('test-task');
