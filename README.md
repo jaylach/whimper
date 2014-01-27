@@ -68,3 +68,8 @@ and then ...
 ```
 $ node tasks simple-task
 ```
+
+# a complex example
+```javascript
+// TODO: Include a complex example.
+```
