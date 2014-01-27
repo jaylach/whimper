@@ -21,7 +21,7 @@ whimper is ...
 ### built on promises
 whimper is built entirely on the use of promises. Every task takes in two arguments: `params` and `resolver`. The `params`
 argument is an object describing any parameteres being passed to it. The `resolver` argument is a when.js [resolver](https://github.com/cujojs/when/blob/master/docs/api.md#deferred). It is
-each task's responsibility to either return another promise or resolver/reject this resolver.  
+each task's responsibility to either return another promise or resolve/reject its resolver.  
 
 ### plugin free
 That's right! Whey create yet another plugin system when all whimper does is call JavaScript functions anyways? So long as 
