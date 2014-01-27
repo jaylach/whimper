@@ -36,8 +36,14 @@ var whimp = require('whimper');
 
 whimp.task('simple-task', {
   run: function(params, resolver) {
-    // Gotta make sure I resolve myself
-    resolver.resolve();
+    doSomethingAsync(function(error) {
+      if ( error != null ) {
+        resolver.reject(error);
+      }
+      else {
+        resolver.resolve();
+      }
+    });
   }
 });
 ```
