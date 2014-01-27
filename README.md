@@ -1,8 +1,5 @@
-# whimper [![Build Status][travis-image]][travis-url]
+# whimper [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
 A simple, unintrusive, task runner for node.js.
-
-[travis-url]: https://travis-ci.org/jaylach/whimper
-[travis-image]: https://travis-ci.org/jaylach/whimper.png?branch=master
 
 # notes
 Please note that whimper is currently in an alpha state. Tests need to be stronger, examples need to be made better, and it
@@ -87,3 +84,8 @@ good (subjective, I know) task runners that allowed me to just run JavaScript. E
 global installs, and the like. I didn't want that. I wanted to run JavaScript and JavaScript alone. 
 
 Hence, whimper was born.
+
+[travis-url]: https://travis-ci.org/jaylach/whimper
+[travis-image]: https://travis-ci.org/jaylach/whimper.png?branch=master
+[npm-url]: https://npmjs.org/package/whimper
+[npm-image]: https://badge.fury.io/js/whimper.png
