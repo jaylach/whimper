@@ -78,3 +78,12 @@ $ node tasks simple-task
 ```javascript
 // TODO: Include a complex example.
 ```
+
+# so, another task runner?
+Does the node community really need yet another task runner? I believe that yes, yes we do. 
+Why, you may ask? It's quite simple, I think. The task runners that exist today are either far too complicated (here's looking
+at you, grunt), far too niche (gulp is really a build system, not a task runner), or just wheel reinvention. There were no
+good (subjective, I know) task runners that allowed me to just run JavaScript. Everything required configuration, plugins,
+global installs, and the like. I didn't want that. I wanted to run JavaScript and JavaScript alone. 
+
+Hence, whimper was born.
