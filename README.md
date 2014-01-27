@@ -81,9 +81,11 @@ whimp.task('task-name', {
     'foo': 'An optional option.',
     '!bar': 'A required option.'
   }, 
-  // Conditional. An array of task names this task depends on. Either this or the run property is required.
+  // Conditional. An array of task names this task depends on. Either this or the 
+  // run property is required.
   depends: [ 'a', 'b' ],
-  // Conditional. What our task actually does. Either this or the depends property is required.
+  // Conditional. What our task actually does. Either this or the depends property 
+  // is required.
   run: function(params, resolver) {
     // Resolve yourself!
     // Or return a promise!
