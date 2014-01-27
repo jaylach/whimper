@@ -26,7 +26,7 @@ That's right! Whey create yet another plugin system when all whimper does is cal
 your function returns a promise (q, when, whatever) or resolves it's own promise, whimper doesn't care. Why get all fancy?
 
 ### not globally installed?
-Global installs sucks. They make things sucky and whimper is not sucky. whimper, instead, let's you chose how you want to
+Global installs stink. They make things stinky and whimper is not stinky. whimper, instead, let's you chose how you want to
 run your tasks. If you want run your tasks from the command line, whimper gives you a way to do that. If you want to run 
 them through code, you can do that to. You have power to decide and that's a wonderful thing.. at least we think so!
 
