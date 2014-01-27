@@ -71,6 +71,31 @@ and then ...
 $ node tasks simple-task
 ```
 
+### task structure
+```javascript
+whimp.task('task-name', {
+  // Optional.
+  describe: 'A description of this task',
+  // Optional. Any task options. Used by CLI.
+  options: {
+    'foo': 'An optional option.',
+    '!bar': 'A required option.'
+  }, 
+  // Conditional. An array of task names this task depends on. Either this or the run property is required.
+  depends: [ 'a', 'b' ],
+  // Conditional. What our task actually does. Either this or the depends property is required.
+  run: function(params, resolver) {
+    // Resolve yourself!
+    // Or return a promise!
+  }
+});
+```
+
+A task can optionally be describe as just an array of dependencies. Great for composing
+```javascript
+whimp.task('task-name', [ 'a', 'b', 'c' ]);
+```
+
 # a complex example
 ```javascript
 // TODO: Include a complex example.
