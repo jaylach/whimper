@@ -4,11 +4,11 @@
   "description": "Yet another JavaScript task runner.",
   "main": "index.js",
   "dependencies": {
-    "q": "~1.0.0",
     "optimist": "~0.6.0",
     "lodash": "~2.4.1",
     "moment": "~2.5.0",
-    "cli-color": "~0.2.3"
+    "cli-color": "~0.2.3",
+    "when": "~2.7.1"
   },
   "devDependencies": {
     "mocha": "~1.17.0"

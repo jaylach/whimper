@@ -1,63 +1,33 @@
-var whimp = require('../index');
-var logger = require('../lib/logger');
+var whimp = require('../whimper');
 
-whimp.task('depends1', {
-  run: function depends1(params, deferred) {
+whimp.task('a', { 
+  run: function(params, resolver) {
     setTimeout(function() {
-      deferred.resolve();
+      resolver.resolve('Some good');
+    }, 1000);
+  } 
+});
+
+whimp.task('b', {
+  run: function(params, resolver) {
+    setTimeout(function(){
+      resolver.reject('I suck.');
     }, 2500);
   }
-});
+})
 
-whimp.task('depends2', {
-  concurrent: true,
-  depends: [ 'depends3', 'depends4' ],
-  run: function depends2(params, deferred) {
-    deferred.resolve();
+whimp.task('c', [ 'd' ]);
+whimp.task('d', [ 'e' ]);
+whimp.task('e', [ 'a' ]);
+whimp.task('f', { run: function() {} });
+
+//whimp.task('test', [ 'a', 'b', 'f', 'c' ]);
+
+whimp.task('test', {
+  depends: [ 'a' ],
+  run: function(params, resolver) {
+    return whimp.run('b');
   }
 });
 
-whimp.task('depends3', {
-  concurrent: true,
-  run: function depends3(params, deferred) {
-    setTimeout(function() {
-      deferred.resolve();
-    }, 1000);
-  }
-});
-
-whimp.task('depends4', {
-  concurrent: true,
-  run: function depends4(params, deferred) {
-    setTimeout(function() {
-      deferred.resolve();
-    }, 1500);
-  }
-});
-
-whimp.task('some-depends', {
-  run: function someDepends(params, deferred) {
-    setTimeout(function() {
-      deferred.reject('I suck.');
-    }, 1000);
-  }
-});
-
-whimp.task('some-task', {
-  depends: [ 'some-depends' ],
-  run: function someTask(params, deferred) {
-    setTimeout(function() {
-      deferred.resolve();
-    }, 1500);
-  }
-});
-
-whimp.task('test-task', {
-  depends: [ 'depends1', 'depends2' ],
-  run: function testTask(params, deferred) {
-    return whimp.run('some-task');
-  }
-});
-
-
-whimp.run('test-task');
+whimp.run('test');
