@@ -1,3 +1,5 @@
+'use strict';
+
 var clc = require('cli-color');
 
 // -----
@@ -31,6 +33,8 @@ var Logger = function Logger() {
 
 // write()
 Logger.prototype.write = function write(taskName, what) {
+  if ( this.quiet === true ) return;
+
   if ( arguments.length === 1 ) {
     what = taskName;
     taskName = null;
@@ -47,6 +51,8 @@ Logger.prototype.write = function write(taskName, what) {
 
 // error()
 Logger.prototype.error = function error(taskName, what) {
+  if ( this.quiet === true ) return;
+  
   if ( arguments.length === 1 ) {
     what = taskName;
     taskName = null;

@@ -1,4 +1,5 @@
 var whimp = require('../whimper');
+var logger = require('../logger');
 
 whimp.task('a', { 
   run: function(params, resolver) {
@@ -35,6 +36,7 @@ whimp.task('test', {
     'value': 'Some optional value.'
   },
   run: function(params, resolver) {
+    logger.write('test', 'got key=' + params.key);
     return whimp.run('b');
   }
 });

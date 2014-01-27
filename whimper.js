@@ -1,3 +1,5 @@
+'use strict';
+
 var util = require('util');
 
 var when = require('when');
@@ -100,6 +102,11 @@ Whimper.prototype.run = function run(taskName, params) {
     });
 }; //- run()
 
+// quiet()
+Whimper.prototype.quiet = function quiet(quiet) {
+  logger.quiet = quiet;
+}; //- quiet()
+
 // hasTask()
 Whimper.prototype.hasTask = function hasTask(taskName) {
   return (this._tasks[taskName] instanceof Task);
@@ -142,6 +149,14 @@ Whimper.prototype._validateTask = function _validateTask(taskName, task) {
 
   return true;
 }; //- _validateTask()
+
+// _empty()
+Whimper.prototype._empty = function _empty() {
+  // WARNING: This is here for testing purposes only. Should never need to be called
+  // outside of the whimper test suite.
+
+  this._tasks = {};
+}; //- _empty()
 
 // Exports
 module.exports = new Whimper();
