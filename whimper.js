@@ -43,7 +43,10 @@ Whimper.prototype.task = function task(taskName, task) {
     var defaults = {
       name: taskName,
       depends: [],
-      options: {}
+      options: {},
+      run: function(params, resolver) {
+        resolver.resolve();
+      }
     };
     task = _.defaults(task, defaults);
 
@@ -82,7 +85,6 @@ Whimper.prototype.run = function run(taskName, params) {
       return sequence(sequenced, params);
     })
     .then(function runDoneFulfilled() {
-      console.log('done?');
       // Do something special when we're done?
     })
     .catch(function runDoneRejected(error) {
@@ -102,6 +104,11 @@ Whimper.prototype.run = function run(taskName, params) {
 Whimper.prototype.hasTask = function hasTask(taskName) {
   return (this._tasks[taskName] instanceof Task);
 }; //- hasTask()
+
+// bootstrap()
+Whimper.prototype.bootstrap = function bootstrap() {
+  require('./lib/cli');
+}; //- bootstrap()
 
 // -----
 //  Private

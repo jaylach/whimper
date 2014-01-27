@@ -19,15 +19,24 @@ whimp.task('b', {
 whimp.task('c', [ 'd' ]);
 whimp.task('d', [ 'e' ]);
 whimp.task('e', [ 'a' ]);
-whimp.task('f', { run: function() {} });
+whimp.task('f', { 
+  run: function(params, resolver) {
+    resolver.resolve();
+  } 
+});
 
 //whimp.task('test', [ 'a', 'b', 'f', 'c' ]);
 
 whimp.task('test', {
-  depends: [ 'a' ],
+  depends: [ 'c', 'a' ],
+  describe: 'A very simple task for testing.',
+  options: {
+    '!key': 'Some required option.',
+    'value': 'Some optional value.'
+  },
   run: function(params, resolver) {
     return whimp.run('b');
   }
 });
 
-whimp.run('test');
+whimp.bootstrap();
