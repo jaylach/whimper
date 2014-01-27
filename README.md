@@ -30,8 +30,9 @@ Global installs stink. They make things stinky and whimper is not stinky. whimpe
 run your tasks. If you want run your tasks from the command line, whimper gives you a way to do that. If you want to run 
 them through code, you can do that to. You have power to decide and that's a wonderful thing.. at least we think so!
 
-# a simple task
+# a simple example
 ```javascript
+// tasks.js
 var whimp = require('whimper');
 
 whimp.task('simple-task', {
@@ -46,5 +47,19 @@ whimp.task('simple-task', {
     });
   }
 });
+
+whimp.run('simple-task');
 ```
 
+and then ...
+```
+$ node tasks
+```
+
+### with cli support
+replace `whimp.run('simple-task')` with `whimp.cli()`
+
+and then ...
+```
+$ node tasks simple-task
+```
