@@ -105,10 +105,10 @@ Whimper.prototype.hasTask = function hasTask(taskName) {
   return (this._tasks[taskName] instanceof Task);
 }; //- hasTask()
 
-// bootstrap()
-Whimper.prototype.bootstrap = function bootstrap() {
+// cli()
+Whimper.prototype.cli = function cli() {
   require('./lib/cli');
-}; //- bootstrap()
+}; //- cli()
 
 // -----
 //  Private

@@ -39,4 +39,4 @@ whimp.task('test', {
   }
 });
 
-whimp.bootstrap();
+whimp.cli();
