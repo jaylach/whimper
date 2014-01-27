@@ -18,17 +18,22 @@ whimper is ...
 - lightweight and out of your way
 - built on promises
 - just JavaScirpt functions
-- plugin free! (more below)
-- not globally installed (more below)
+- plugin free!
+- not globally installed
 
-### plugin free?
+### built on promises
+whimper is built entirely on the use of promises. Every task takes in two arguments: `params` and `resolver`. The `params`
+argument is an object describing any parameteres being passed to it. The `resolver` argument is a when.js [resolver](https://github.com/cujojs/when/blob/master/docs/api.md#deferred). It is
+each task's responsibility to either return another promise or resolver/reject this resolver.  
+
+### plugin free
 That's right! Whey create yet another plugin system when all whimper does is call JavaScript functions anyways? So long as 
 your function returns a promise (q, when, whatever) or resolves it's own promise, whimper doesn't care. Why get all fancy?
 
-### not globally installed?
+### not globally installed
 Global installs stink. They make things stinky and whimper is not stinky. whimper, instead, let's you chose how you want to
 run your tasks. If you want run your tasks from the command line, whimper gives you a way to do that. If you want to run 
-them through code, you can do that to. You have power to decide and that's a wonderful thing.. at least we think so!
+them through code, you can do that too. You have power to decide and that's a wonderful thing.. at least we think so!
 
 # a simple example
 ```javascript
