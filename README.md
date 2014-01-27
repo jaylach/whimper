@@ -35,6 +35,11 @@ Global installs stink. They make things stinky and whimper is not stinky. whimpe
 run your tasks. If you want run your tasks from the command line, whimper gives you a way to do that. If you want to run 
 them through code, you can do that too. You have power to decide and that's a wonderful thing.. at least we think so!
 
+# installation
+```
+$ npm install whimper
+```
+
 # a simple example
 ```javascript
 // tasks.js
