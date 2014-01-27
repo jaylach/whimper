@@ -1,8 +1,9 @@
 {
   "name": "whimper",
-  "version": "0.0.1",
   "description": "Yet another JavaScript task runner.",
-  "main": "index.js",
+  "version": "0.1.0",
+  "stability": "alpha",
+  "main": "whimper.js",
   "dependencies": {
     "optimist": "~0.6.0",
     "lodash": "~2.4.1",
@@ -17,7 +18,9 @@
   "scripts": {
     "test": "mocha --reporter spec"
   },
-  "repository": "",
+  "engines": {
+    "node": ">= 0.8"
+  },
   "keywords": [
     "task",
     "build",
@@ -25,7 +28,11 @@
     "unit",
     "tool"
   ],
+  "bugs": "https://github.com/jaylach/whimper/issues",
+  "repository": "https://github.com/jaylach/whimper.git",
   "author": "Jason LaChapelle <toys@codegrit.com>",
-  "license": "MIT",
-  "readmeFilename": "README.md"
+  "contributors": [
+    "Jason LaChapelle <toys@codegrit.com>"
+  ],
+  "license": "MIT"
 }
