@@ -1,6 +1,6 @@
 {
   "name": "whimper",
-  "description": "Yet another JavaScript task runner.",
+  "description": "A simple, unintrusive, task runner for node.js.",
   "version": "0.1.5",
   "stability": "alpha",
   "main": "whimper.js",
