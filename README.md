@@ -36,6 +36,14 @@ Global installs stink. They make things stinky and whimper is not stinky. whimpe
 run your tasks. If you want run your tasks from the command line, whimper gives you a way to do that. If you want to run 
 them through code, you can do that too. You have power to decide and that's a wonderful thing.. at least we think so!
 
+### concurrency & execution
+whimper does not set out to be a highly concurrent task runner. Instead it tries to provide a framework for running tasks
+that most developers will find comfortable. With that said, whimper does not run very many tasks concurrently. In fact, 
+the only tasks whimper will run concurrently are tasks that have no dependencies. Any tasks that do have dependencies will
+be ran sequentially, ensuring all dependencies are met before running.
+
+A typical whimper execution order would look like: [all concurrent] -> [sequenced] -> [sequenced] -> ... -> [done]
+
 # installation
 ```
 $ npm install whimper
