@@ -106,7 +106,7 @@ whimp.task('task-name', [ 'a', 'b', 'c' ]);
 You can find a slightly more, though not any less contrived, examples at [examples/complex.js](https://github.com/jaylach/whimper/blob/master/examples/complex.js). 
 You can run this example by doing ...
 ```
-$ node complex cddir --dir test
+$ node complex --dir test
 ```
 
 # so, another task runner?
