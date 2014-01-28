@@ -46,4 +46,4 @@ whimp.task('cddir', {
 
 whimp.cli();
 
-// $ node complex cddr --dir test
+// $ node complex cddir --dir test
