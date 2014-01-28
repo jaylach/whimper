@@ -103,8 +103,10 @@ whimp.task('task-name', [ 'a', 'b', 'c' ]);
 ```
 
 # a complex example
-```javascript
-// TODO: Include a complex example.
+You can find a slightly more, though not any less contrived, examples at [examples/complex.js](https://github.com/jaylach/whimper/blob/master/examples/complex.js). 
+You can run this example by doing ...
+```
+$ node complex cddir --dir test
 ```
 
 # so, another task runner?
