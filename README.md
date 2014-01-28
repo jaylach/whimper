@@ -1,4 +1,4 @@
-<p align="center" style="font-size: 24px;">
+<p align="center" size="18">
   ू(ʚ̴̶̷́ .̠ ʚ̴̶̷̥̀ ू)
 </p>
 
