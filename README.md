@@ -28,7 +28,7 @@ argument is an object describing any parameteres being passed to it. The `resolv
 each task's responsibility to either return another promise or resolve/reject its resolver.  
 
 ### plugin free
-That's right! Whey create yet another plugin system when all whimper does is call JavaScript functions anyways? So long as 
+That's right! Why create yet another plugin system when all whimper does is call JavaScript functions anyways? So long as 
 your function returns a promise (q, when, whatever) or resolves its own promise, whimper doesn't care. Why get all fancy?
 
 ### not globally installed
