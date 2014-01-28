@@ -24,6 +24,7 @@ var format = util.format;
 // Whimper()
 var Whimper = function Whimper() {
   this._tasks = {};
+  this.defaultTask = 'default';
 }; //- Whimper()
 
 // -----
