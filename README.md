@@ -1,3 +1,7 @@
+<p align="center">
+  <div style="font-size: 18px">ू(ʚ̴̶̷́ .̠ ʚ̴̶̷̥̀ ू)</div>
+</p>
+
 # whimper [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
 A simple, unintrusive, task runner for node.js.
 
