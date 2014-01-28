@@ -36,14 +36,14 @@ whimp.task('delete-dir', {
   }
 }); //- delete-dir()
 
-// cddir()
-whimp.task('cddir', {
+// default()
+whimp.task('default', {
   options: {
     '!dir': 'The directory to create and then delete.'
   },
   depends: [ 'delete-dir' ]
-}); //- cddir()
+}); //- default()
 
 whimp.cli();
 
-// $ node complex cddir --dir test
+// $ node complex --dir test
