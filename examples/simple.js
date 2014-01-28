@@ -26,9 +26,7 @@ whimp.task('f', {
   } 
 });
 
-//whimp.task('test', [ 'a', 'b', 'f', 'c' ]);
-
-whimp.task('test', {
+whimp.task('simple', {
   depends: [ 'c', 'a' ],
   describe: 'A very simple task for testing.',
   options: {
@@ -36,7 +34,7 @@ whimp.task('test', {
     'value': 'Some optional value.'
   },
   run: function(params, resolver) {
-    logger.write('test', 'got key=' + params.key);
+    logger.write('simple', 'got key=' + params.key);
     return whimp.run('b');
   }
 });
