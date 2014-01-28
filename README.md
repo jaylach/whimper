@@ -1,5 +1,5 @@
 <p align="center">
-  <span style="font-size: 32px;">ू(ʚ̴̶̷́ .̠ ʚ̴̶̷̥̀ ू)</span>
+  <img width="164" height="92" src="http://os.codegrit.com/images/whimper.png" />
 </p>
 
 # whimper [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
