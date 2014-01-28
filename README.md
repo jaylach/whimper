@@ -1,5 +1,5 @@
-<p align="center" style="font-size: 32px;">
-  ू(ʚ̴̶̷́ .̠ ʚ̴̶̷̥̀ ू)
+<p align="center">
+  <span style="font-size: 32px;">ू(ʚ̴̶̷́ .̠ ʚ̴̶̷̥̀ ू)</span>
 </p>
 
 # whimper [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
