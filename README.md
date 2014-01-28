@@ -10,6 +10,8 @@ Please note that whimper is currently in an alpha state. Tests need to be strong
 it needs to gain some usage so the kinks can be ironed out. It's usable, for sure, just be sure to report any issues back 
 here.. or, better yet, submit a patch!
 
+You can find a list of current TODOs [here](https://github.com/jaylach/whimper/wiki/Todo)
+
 # overview
 whimper is, in reality, just a pretty api around managing and running JavaScirpt functions. It stays out of your way and 
 lets you do what you do best: write code. It's simple yet eloquent. Compared to other task runners out there, it really
