@@ -39,10 +39,9 @@ them through code, you can do that too. You have power to decide and that's a wo
 ### concurrency & execution
 whimper does not set out to be a highly concurrent task runner. Instead it tries to provide a framework for running tasks
 that most developers will find comfortable. With that said, whimper does not run very many tasks concurrently. In fact, 
-the only tasks whimper will run concurrently are tasks that have no dependencies. Any tasks that do have dependencies will
-be ran sequentially, ensuring all dependencies are met before running.
-
-A typical whimper execution order would look like: [all concurrent] -> [sequenced] -> [sequenced] -> ... -> [done]
+the only tasks whimper will run concurrently are tasks that have no dependencies. Any tasks that *do* have dependencies 
+will be ran sequentially, ensuring all dependencies are met before running. No task will start until its dependencies
+have been resolved. Should a dependency fail, the task fails as well.
 
 # installation
 ```
