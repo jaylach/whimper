@@ -106,7 +106,12 @@ whimp.task('task-name', {
 });
 ```
 
-A task can optionally be describe as just an array of dependencies. Great for composing
+If you have a task that doesn't need any frills (options, dependencies, etc), you can describe it by just passing `task` a function.
+```javascript
+whimpe.task('task-name', function(params, resolver) { ... });
+```
+
+A task can also be describe as just an array of dependencies. Great for composing.
 ```javascript
 whimp.task('task-name', [ 'a', 'b', 'c' ]);
 ```
