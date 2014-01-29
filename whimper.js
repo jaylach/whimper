@@ -40,6 +40,12 @@ Whimper.prototype.task = function task(taskName, task) {
       depends: oldTask
     };
   }
+  else if ( _.isFunction(task) ) {
+    var oldTask = task;
+    task = {
+      run: oldTask
+    }
+  }
 
   // Validate our task
   if ( this._validateTask(taskName, task) ) {
