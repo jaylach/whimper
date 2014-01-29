@@ -106,7 +106,7 @@ whimp.task('task-name', {
 });
 ```
 
-If you have a task that doesn't need any frills (options, dependencies, etc), you can describe it by just passing `task` a function.
+If your task that doesn't need any frills (options, dependencies, etc), you can just pass `task` a function.
 ```javascript
 whimpe.task('task-name', function(params, resolver) { ... });
 ```
