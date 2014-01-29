@@ -3,9 +3,7 @@ var logger = require('../logger');
 
 whimp.task('a', { 
   run: function(params, resolver) {
-    setTimeout(function() {
-      resolver.resolve('Some good');
-    }, 1000);
+    return true;
   } 
 });
 
