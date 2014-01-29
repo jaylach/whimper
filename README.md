@@ -100,8 +100,8 @@ whimp.task('task-name', {
   // Conditional. What our task actually does. Either this or the depends property 
   // is required.
   run: function(params, resolver) {
-    // Resolve yourself!
-    // Or return a promise!
+    // Resolve yourself, return a promise,
+    // or return any non-undefined value (sync functions only)
   }
 });
 ```
