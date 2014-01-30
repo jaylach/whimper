@@ -33,6 +33,10 @@ each task's responsibility to either return another promise or resolve/reject it
 That's right! Why create yet another plugin system when all whimper does is call JavaScript functions anyways? So long as 
 your function returns a promise (q, when, whatever) or resolves its own promise, whimper doesn't care. Why get all fancy?
 
+whimper does, however, provide a way of reusing common tasks. The `whimper.use` method accepts a function that takes in
+params and a resolver. Like tasks, this function is required to either return a non-undefined value, a promise, or resolve
+itself. 
+
 ### not globally installed
 Global installs stink. They make things stinky and whimper is not stinky. whimper, instead, let's you chose how you want to
 run your tasks. If you want run your tasks from the command line, whimper gives you a way to do that. If you want to run 
