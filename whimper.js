@@ -15,6 +15,26 @@ var logger = require('./logger');
 //  Helpers
 // -----
 
+// promiseFulfilled()
+var promiseFulfilled = function promiseFulfilled() {
+  // Do something when we're fulfilled?
+}; //- promiseFulfilled()
+
+// promiseRejected()
+var promiseRejected = function(taskName) {
+  return function promiseRejected(error) {
+    var message = error;
+    if ( error instanceof Error ) {
+      message = error.message;
+    }
+
+    message = format('Failure. %s', message);
+    logger.error(taskName, message);
+
+    throw error;
+  }; 
+}; //- promiseRejected()
+
 var format = util.format;
 
 // -----
@@ -93,21 +113,30 @@ Whimper.prototype.run = function run(taskName, params) {
     .then(function() {
       return sequence(sequenced, params);
     })
-    .then(function runDoneFulfilled() {
-      // Do something special when we're done?
-    })
-    .catch(function runDoneRejected(error) {
-      var message = error;
-      if ( error instanceof Error ) {
-        message = error.message;
-      }
-
-      message = format('Failure. %s', message);
-      logger.error(taskName, message);
-
-      throw error;
-    });
+    .then(promiseFulfilled)
+    .catch(promiseRejected(taskName));
 }; //- run()
+
+// use()
+Whimper.prototype.use = function use(func, params) {
+  if ( !_.isFunction(func) ) {
+    throw new Error("A function is required for 'use'.");
+  }
+
+  var funcName = func.name;
+  if ( funcName.length === 0 ) funcName = '(Anonymous)';
+
+  var taskOptions = {
+    name: funcName,
+    run: func
+  };
+
+  var task = new Task(taskOptions);
+
+  return task.run(params)
+    .then(promiseFulfilled)
+    .catch(promiseRejected(funcName));
+}; //- use()
 
 // quiet()
 Whimper.prototype.quiet = function quiet(quiet) {
