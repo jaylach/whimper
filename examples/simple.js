@@ -1,6 +1,14 @@
 var whimp = require('../whimper');
 var logger = require('../logger');
 
+// useme()
+var useme = function useme(params, resolver) {
+  console.log('in use');
+  setTimeout(function() {
+    resolver.reject('not okay');
+  }, 1000);
+}; //- useme()
+
 whimp.task('a', { 
   run: function(params, resolver) {
     return true;
@@ -9,9 +17,7 @@ whimp.task('a', {
 
 whimp.task('b', {
   run: function(params, resolver) {
-    setTimeout(function(){
-      resolver.reject('I suck.');
-    }, 2500);
+    return whimp.use(useme, params);
   }
 })
 
