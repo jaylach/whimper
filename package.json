@@ -1,8 +1,8 @@
 {
   "name": "whimper",
   "description": "A simple, unintrusive, task runner for node.js.",
-  "version": "0.1.7",
-  "stability": "alpha",
+  "version": "0.2.0",
+  "stability": "beta",
   "main": "whimper.js",
   "dependencies": {
     "optimist": "~0.6.0",
