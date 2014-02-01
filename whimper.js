@@ -53,6 +53,15 @@ var Whimper = function Whimper() {
 
 // task()
 Whimper.prototype.task = function task(taskName, task) {
+  // We want to get our task
+  if ( taskName != null && arguments.length === 1 ) {
+    if ( !this.hasTask(taskName) ) {
+      throw new Error(format("A task with the name '%s' does not exist.", taskName));
+    }
+
+    return this._tasks[taskName];
+  }
+
   // If our task param is an array, assume it's an array of dependencies
   if ( _.isArray(task) ) {
     var oldTask = task;
@@ -73,6 +82,7 @@ Whimper.prototype.task = function task(taskName, task) {
       name: taskName,
       depends: [],
       options: {},
+      config: {},
       run: function(params, resolver) {
         resolver.resolve();
       }
@@ -137,6 +147,24 @@ Whimper.prototype.use = function use(func, params) {
     .then(promiseFulfilled)
     .catch(promiseRejected(funcName));
 }; //- use()
+
+// config()
+Whimper.prototype.config = function config(taskName, config) {
+  // We want to set some config
+  if ( !this.hasTask(taskName) ) {
+    throw new Error(format("A task with the name '%s' does not exist.", taskName));
+  }
+
+  var task = this.task(taskName);
+
+  // We want to get some config
+  if ( taskName != null && arguments.lenght === 1 ) {
+    return task.config;
+  }
+  
+  // We want to set some config
+  task.config = _.defaults(config, task.config);
+}; //- config()
 
 // quiet()
 Whimper.prototype.quiet = function quiet(quiet) {
