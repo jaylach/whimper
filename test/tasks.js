@@ -44,7 +44,8 @@ describe('whimper tasks', function() {
       });
 
       should.exist(whimp._tasks.someTask);
-      (whimp._tasks.someTask instanceof Task).should.be.true;
+      whimp.hasTask('someTask').should.be.true;
+
       whimp._tasks.someTask._run.should.eql(runFunc);
 
       done();
@@ -58,7 +59,7 @@ describe('whimper tasks', function() {
       };
 
       register();
-      (whimp._tasks.someTask instanceof Task).should.be.true;
+      whimp.hasTask('someTask').should.be.true;
 
       (function() {
         register();
@@ -72,7 +73,8 @@ describe('whimper tasks', function() {
       whimp.task('someTask', depends);
 
       should.exist(whimp._tasks.someTask);
-      (whimp._tasks.someTask instanceof Task).should.be.true;
+      whimp.hasTask('someTask').should.be.true;
+      
       whimp._tasks.someTask.depends.should.eql(depends);
       (typeof(whimp._tasks.someTask._run)).should.eql('function');
 
@@ -83,7 +85,8 @@ describe('whimper tasks', function() {
       whimp.task('someTask', runFunc);
 
       should.exist(whimp._tasks.someTask);
-      (whimp._tasks.someTask instanceof Task).should.be.true;
+      whimp.hasTask('someTask').should.be.true;
+
       whimp._tasks.someTask._run.should.eql(runFunc);
 
       done();
@@ -185,4 +188,24 @@ describe('whimper tasks', function() {
       });
     });
   }); //- run()
+
+  // use()
+  describe('use()', function() {
+    it('Should execute a function', function(done) {
+      var f = function(params, resolver) {
+        resolver.resolve();
+      };
+
+      var promise = whimp.use(f, {});
+      when.isPromiseLike(promise).should.be.true
+
+      promise.done(function() {
+        promise.inspect().state.should.eql('fulfilled');
+        done();
+      }, function() {
+        false.should.be.true;
+        done();
+      });
+    });
+  }); //- use()
 }); //- describe()
