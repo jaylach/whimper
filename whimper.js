@@ -158,7 +158,7 @@ Whimper.prototype.config = function config(taskName, config) {
   var task = this.task(taskName);
 
   // We want to get some config
-  if ( taskName != null && arguments.lenght === 1 ) {
+  if ( taskName != null && arguments.length === 1 ) {
     return task.config;
   }
   
