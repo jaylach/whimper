@@ -191,7 +191,7 @@ describe('whimper tasks', function() {
 
   // use()
   describe('use()', function() {
-    it('Should execute a function', function(done) {
+    it('Should execute a function.', function(done) {
       var f = function(params, resolver) {
         resolver.resolve();
       };
@@ -208,4 +208,11 @@ describe('whimper tasks', function() {
       });
     });
   }); //- use()
+
+  // config()
+  describe('config()', function() {
+    it('Should register a task configuration.', function(done) {
+      done();
+    });
+  }); //- config()
 }); //- describe()
