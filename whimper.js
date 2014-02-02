@@ -161,6 +161,10 @@ Whimper.prototype.config = function config(taskName, config) {
   if ( taskName != null && arguments.length === 1 ) {
     return task.config;
   }
+
+  if ( !_.isPlainObject(config) ) {
+    throw new Error("The 'config' function only accepts objects.");
+  }
   
   // We want to set some config
   task.config = _.defaults(config, task.config);
