@@ -20,7 +20,7 @@ whimp.quiet(true);
 describe('whimper tasks', function() {
   // task()
   describe('task()', function() {
-    beforeEach(function() {
+    afterEach(function() {
       whimp._empty();
     });
 
@@ -95,7 +95,7 @@ describe('whimper tasks', function() {
 
   // run()
   describe('run()', function() {
-    beforeEach(function() {
+    afterEach(function() {
       whimp._empty();
     });
 
@@ -191,6 +191,10 @@ describe('whimper tasks', function() {
 
   // use()
   describe('use()', function() {
+    afterEach(function() {
+      whimp._empty();
+    });
+
     it('Should execute a function.', function(done) {
       var f = function(params, resolver) {
         resolver.resolve();
@@ -211,8 +215,39 @@ describe('whimper tasks', function() {
 
   // config()
   describe('config()', function() {
+    beforeEach(function() {
+      whimp._empty();
+      whimp.task('someTask', {
+        run: function(params, resolver) {
+          resolver.resolve();
+        }
+      });
+    });
+
     it('Should register a task configuration.', function(done) {
+      var config = { foo: 'bar' };
+      whimp.config('someTask', config);
+
+      var actual = whimp.config('someTask');
+      actual.should.eql(config);
+
       done();
+    });
+
+    it('Should merge a task configuration and params at run time.', function(done) {
+      var config = { foo: 'bar' };
+      var expected = { foo: 'bar', baz: 'quux' };
+
+      whimp.config('someTask', config);
+
+      var promise = whimp.run('someTask', { baz: 'quux' });
+      promise.done(function() {
+          whimp.task('someTask')._params.should.eql(expected);
+          done();
+        }, function(error) {
+          false.should.be.true;
+          done();
+        });
     });
   }); //- config()
 }); //- describe()
